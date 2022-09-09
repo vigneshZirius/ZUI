@@ -24,13 +24,13 @@ public class ThemeUtil extends HTML {
     ui.getElement().setAttribute(THEME_ATTRIBUTE, themeVariant.getAttribute());
     ui
       .getPage()
-      .executeJs("document.getElementsByTagName('html')[0].setAttribute('theme', '" + themeVariant.getAttribute() + "')");
+      .executeJs("document.querySelector('html').setAttribute('theme', '" + themeVariant.getAttribute() + "')");
     ComponentUtil.fireEvent(ui, new ThemeVariantChangedEvent(ui, themeVariant));
   }
 
   public static ThemeVariant getCurrentThemeVariant() {
     ThemeVariant themeVariant = (ThemeVariant) VaadinSession.getCurrent().getAttribute(THEME_ATTRIBUTE);
-    return themeVariant != null ? themeVariant : ThemeVariant.NOON;
+    return themeVariant != null ? themeVariant : ThemeVariant.DAY;
   }
 
   public static Registration addThemeChangedListener(UI ui, ComponentEventListener<ThemeVariantChangedEvent> listener) {

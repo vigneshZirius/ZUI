@@ -1,11 +1,12 @@
 package com.zstyles.application;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.server.ServiceInitEvent;
 import com.vaadin.flow.server.VaadinServiceInitListener;
 import com.vaadin.flow.server.communication.IndexHtmlRequestListener;
 import com.vaadin.flow.server.communication.IndexHtmlResponse;
 import com.zstyles.application.theme.ThemeUtil;
-
+import javax.persistence.metamodel.SetAttribute;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,6 +27,4 @@ public class ThemeBoostrapListener implements VaadinServiceInitListener, IndexHt
                 ThemeUtil.THEME_ATTRIBUTE,
                 ThemeUtil.getCurrentThemeVariant().getAttribute());
     }
-
-
 }

@@ -1,19 +1,21 @@
 package com.zstyles.application.views;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Header;
-import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import com.zstyles.application.components.appnav.AppNav;
 import com.zstyles.application.components.appnav.AppNavItem;
 import com.zstyles.application.theme.ThemeSelector;
+import com.zstyles.application.theme.ThemeUtil;
 import com.zstyles.application.views.about.AboutView;
 import com.zstyles.application.views.cardlist.CardListView;
 import com.zstyles.application.views.checkoutform.CheckoutFormView;
@@ -33,6 +35,18 @@ public class MainLayout extends AppLayout {
     setPrimarySection(Section.DRAWER);
     addDrawerContent();
     addHeaderContent(new ThemeSelector());
+    setDefaultTheme();
+  }
+
+  private void setDefaultTheme() {
+    UI
+      .getCurrent()
+      .getPage()
+      .executeJs(
+        "document.querySelector('html').setAttribute('theme', '" +
+        ThemeUtil.getCurrentThemeVariant().getAttribute() +
+        "')"
+      );
   }
 
   private void addHeaderContent(Tabs menu) {

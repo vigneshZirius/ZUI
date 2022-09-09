@@ -1,23 +1,18 @@
 package com.zstyles.application.theme;
 
 import com.vaadin.flow.component.ComponentUtil;
+import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
-import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
 
-/**
- * @author erik@vaadin.com
- * @since 20.5.2021
- */
-public class ThemeSelector extends Tabs {
 
-    public ThemeSelector() {
-        setOrientation(Tabs.Orientation.HORIZONTAL);
-        addThemeVariants(TabsVariant.LUMO_MINIMAL);
-        setId("tabs");
-        addClassName("ml-auto");
-        addSelectedChangeListener(e -> {
+public class SelectSelector extends Select{
+
+    public SelectSelector() {
+        
+        setId("themeSelector");
+        addValueChangeListener((e) -> {
             // Don't fire when we call setSelectedTab(tab) in the for-loop below
             if (e.isFromClient()) {
                 ThemeVariant themeVariant = ComponentUtil.getData(e.getSelectedTab(), ThemeVariant.class);
@@ -25,15 +20,20 @@ public class ThemeSelector extends Tabs {
             }
         });
 
+        
+
         ThemeVariant currentThemeVariant = ThemeUtil.getCurrentThemeVariant();
+        Select select = new Select<>();
+        ThemeVariant[] themeVariant = ThemeVariant.values();
+        select.setItems(themeVariant);
         for (ThemeVariant themeVariant : ThemeVariant.values()) {
-            Tab tab = new Tab(themeVariant.getCaption());
-            ComponentUtil.setData(tab, ThemeVariant.class, themeVariant);
-            add(tab);
+            // Tab tab = new Tab(themeVariant.getCaption());
 
             if (currentThemeVariant == themeVariant) {
-                setSelectedTab(tab);
+                setValue();
             }
         }
+        add(select);
+        ComponentUtil.setData(select, ThemeVariant.class, themeVariant);
     }
 }
