@@ -11,6 +11,7 @@ html {
   /* font */
   /* --lumo-font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
+  --vaadin-user-color-0: #df0b92;
   --lumo-font-size-xxs: 0.75rem;
   --lumo-font-size-xs: 0.8125rem;
   --lumo-font-size-s: 0.875rem;
@@ -45,7 +46,7 @@ html {
   --lumo-shade-70pct: hsla(214, 42%, 18%, 0.69);
   --lumo-shade-80pct: hsla(214, 41%, 17%, 0.83);
   --lumo-shade-90pct: hsla(214, 40%, 16%, 0.94);
-  --lumo-shade: hsl(214, 35%, 15%);
+  --lumo-shade: hsl(100, 35%, 15%);
   /* contrast */
   --lumo-contrast-5pct: var(--lumo-shade-5pct);
   --lumo-contrast-10pct: var(--lumo-shade-10pct);
@@ -67,64 +68,24 @@ html {
 }
 
 [theme~='day'] {
-  /* color */
-  --lumo-base-color: hsl(240, 8%, 97%);
-  --lumo-header-text-color: var(--lumo-contrast);
-  --lumo-body-text-color: var(--lumo-contrast-90pct);
-  --lumo-secondary-text-color: var(--lumo-contrast-70pct);
-  --lumo-tertiary-text-color: var(--lumo-contrast-50pct);
-  --lumo-disabled-text-color: var(--lumo-contrast-30pct);
+  --lumo-base-color: var(--vaadin-user-color-0);
   --lumo-primary-color: hsl(288, 75%, 54%);
-  --lumo-primary-color-50pct: hsla(214, 100%, 49%, 0.76);
-  --lumo-primary-color-10pct: hsla(214, 100%, 60%, 0.13);
-  --lumo-primary-text-color: hsl(214, 100%, 43%);
-  --lumo-primary-contrast-color: #fff;
-  --lumo-error-color: hsl(3, 85%, 48%);
-  --lumo-error-color-50pct: hsla(3, 85%, 49%, 0.5);
-  --lumo-error-color-10pct: hsla(3, 85%, 49%, 0.1);
-  --lumo-error-text-color: hsl(3, 89%, 42%);
-  --lumo-error-contrast-color: #fff;
-  --lumo-success-color: hsl(145, 72%, 30%);
-}
-
-[theme~='noon'] {
-  --lumo-primary-color: hsl(252, 91%, 49%);
-  --lumo-primary-color-50pct: hsla(233, 75%, 54%, 0.5);
-  --lumo-primary-color-10pct: hsla(183, 75%, 54%, 0.1);
-  --lumo-base-color: hsl(120, 73%, 50%);
-  --lumo-shade: hsl(240, 1%, 34%);
-  --lumo-shade-5pct: hsla(231, 12%, 12%, 0.05);
-  --lumo-shade-10pct: hsla(231, 12%, 12%, 0.1);
-  --lumo-shade-20pct: hsla(231, 12%, 12%, 0.2);
-  --lumo-shade-30pct: hsla(231, 12%, 12%, 0.3);
-  --lumo-shade-40pct: hsla(231, 12%, 12%, 0.4);
-  --lumo-shade-50pct: hsla(231, 12%, 12%, 0.5);
-  --lumo-shade-60pct: hsla(231, 12%, 12%, 0.6);
-  --lumo-shade-70pct: hsla(231, 12%, 12%, 0.7);
-  --lumo-shade-80pct: hsla(231, 12%, 12%, 0.8);
-  --lumo-shade-90pct: hsla(231, 12%, 12%, 0.9);
+  --lumo-primary-color-50pct: hsla(288, 75%, 54%, 0.5);
+  --lumo-primary-color-10pct: hsla(288, 75%, 54%, 0.1);
   --lumo-body-text-color: rgba(69, 66, 66, 0.9);
   --lumo-primary-text-color: rgb(50, 47, 47);
   --lumo-error-text-color: hsl(3, 71%, 47%);
+  --lumo-success-color: hsl(145, 72%, 30%);
 }
 
 [theme~='night'] {
   --lumo-primary-color: hsl(288, 75%, 54%);
-  --lumo-primary-color-50pct: hsla(288, 75%, 54%, 0.5);
-  --lumo-primary-color-10pct: hsla(288, 75%, 54%, 0.1);
-  --lumo-base-color: hsl(239, 55%, 35%);
-  --lumo-shade: hsl(232, 30%, 6%);
-  --lumo-shade-5pct: hsla(232, 30%, 6%, 0.05);
-  --lumo-shade-10pct: hsla(232, 30%, 6%, 0.1);
-  --lumo-shade-20pct: hsla(232, 30%, 6%, 0.2);
-  --lumo-shade-30pct: hsla(232, 30%, 6%, 0.3);
-  --lumo-shade-40pct: hsla(232, 30%, 6%, 0.4);
-  --lumo-shade-50pct: hsla(232, 30%, 6%, 0.5);
-  --lumo-shade-60pct: hsla(232, 30%, 6%, 0.6);
-  --lumo-shade-70pct: hsla(232, 30%, 6%, 0.7);
-  --lumo-shade-80pct: hsla(232, 30%, 6%, 0.8);
-  --lumo-shade-90pct: hsla(232, 30%, 6%, 0.9);
+  --lumo-base-color: hsl(0, 98%, 56%);
+  --lumo-header-text-color: hsla(214, 0%, 92%, 0.9);
   --lumo-body-text-color: hsla(214, 0%, 92%, 0.9);
+  --lumo-secondary-text-color: hsla(214, 0%, 92%, 0.9);
   --lumo-primary-text-color: hsl(214, 0%, 96%);
   --lumo-error-text-color: hsl(3, 71%, 47%);
+  --lumo-primary-color-50pct: hsla(288, 75%, 54%, 0.5);
+  --lumo-primary-color-10pct: hsla(126, 84%, 75%, 0.1);
 }

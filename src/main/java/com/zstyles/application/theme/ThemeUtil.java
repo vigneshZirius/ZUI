@@ -6,9 +6,9 @@ import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.server.VaadinSession;
 import com.vaadin.flow.shared.Registration;
-import javax.persistence.metamodel.SetAttribute;
-import javax.swing.event.DocumentEvent;
 import javax.swing.text.html.HTML;
+
+
 
 /**
  * @author erik@vaadin.com

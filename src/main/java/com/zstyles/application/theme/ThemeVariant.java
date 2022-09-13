@@ -5,7 +5,7 @@ package com.zstyles.application.theme;
  * @since 20.5.2021
  */
 public enum ThemeVariant {
-    DAY("day"), NOON("noon"), NIGHT("night");
+    DAY("day"), NIGHT("night");
 
     private final String caption;
 
