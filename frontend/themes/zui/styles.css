@@ -11,7 +11,7 @@ html {
   /* font */
   /* --lumo-font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
-  --vaadin-user-color-0: #df0b92;
+  --vaadin-user-color-0: white;
   --lumo-font-size-xxs: 0.75rem;
   --lumo-font-size-xs: 0.8125rem;
   --lumo-font-size-s: 0.875rem;
@@ -88,4 +88,99 @@ html {
   --lumo-error-text-color: hsl(3, 71%, 47%);
   --lumo-primary-color-50pct: hsla(288, 75%, 54%, 0.5);
   --lumo-primary-color-10pct: hsla(126, 84%, 75%, 0.1);
+}
+
+.floating-container{
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.floating-container:hover{
+  background-color: rgb(240, 236, 236);;
+}
+.floating-container:hover .float-icon{
+  visibility: visible;
+}
+.floating-container:hover .icon-wrapper, .floating-container:focus-within .icon-wrapper{
+  opacity: 1;
+}
+
+.float-icon{
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  visibility: hidden;
+  margin-left: 5px;
+}
+.float-icon:hover{
+  background-color: rgb(210, 206, 206);
+}
+
+.icon-wrapper{
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  opacity: 0;
+  z-index: 2;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: rgb(210, 206, 206);
+  padding: 2px 6px ;
+  display: flex;
+  align-items: center;
+}
+.icon-wrapper .icon{
+  height: 18px;
+  width: 18px;
+  padding: 2px;
+}
+.icon-wrapper .icon:hover{
+  background-color: rgb(227, 190, 190);
+  border-radius: 50%;
+}
+
+.more-item{
+  display: block;
+  background-color: rgb(167, 171, 171);
+  width: 250px;
+  border-radius: 8px;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+}
+.more-item.show{
+  opacity: 1;
+}
+.more-item label{
+  display: block;
+  padding: 4px;
+}
+.more-item label:hover{
+  background-color: rgb(142, 143, 143);
+}
+
+.user-details{
+  display: flex;
+  align-items: center;
+}
+.user-details img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.user-details p {
+  margin: 0px;
+}
+.user-details .wrapper{
+  margin-left: 10px;
+}
+
+.right-side{
+  right: 80px !important;
+}
+
+.left-side{
+  left: 30px !important;
 }

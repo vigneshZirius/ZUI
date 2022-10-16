@@ -1,13 +1,12 @@
 package com.zstyles.application;
 
-import com.vaadin.flow.component.UI;
+import org.springframework.stereotype.Component;
+
 import com.vaadin.flow.server.ServiceInitEvent;
 import com.vaadin.flow.server.VaadinServiceInitListener;
 import com.vaadin.flow.server.communication.IndexHtmlRequestListener;
 import com.vaadin.flow.server.communication.IndexHtmlResponse;
 import com.zstyles.application.theme.ThemeUtil;
-import javax.persistence.metamodel.SetAttribute;
-import org.springframework.stereotype.Component;
 
 /**
  * @author erik@vaadin.com

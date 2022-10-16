@@ -14,15 +14,13 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import com.zstyles.application.components.appnav.AppNav;
 import com.zstyles.application.components.appnav.AppNavItem;
+import com.zstyles.application.components.appnav.FloatingComponent;
 import com.zstyles.application.theme.ThemeSelector;
 import com.zstyles.application.theme.ThemeUtil;
 import com.zstyles.application.views.about.AboutView;
 import com.zstyles.application.views.cardlist.CardListView;
 import com.zstyles.application.views.checkoutform.CheckoutFormView;
-import com.zstyles.application.views.dashboard.DashboardView;
 import com.zstyles.application.views.imagelist.ImageListView;
-import com.zstyles.application.views.list.ListView;
-import com.zstyles.application.views.masterdetail.MasterDetailView;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -78,14 +76,13 @@ public class MainLayout extends AppLayout {
     // For documentation, visit https://github.com/vaadin/vcf-nav#readme
     AppNav nav = new AppNav();
 
-    nav.addItem(new AppNavItem("Dashboard", DashboardView.class, "la la-chart-area"));
-    nav.addItem(new AppNavItem("List", ListView.class, "la la-th"));
-    nav.addItem(new AppNavItem("Card List", CardListView.class, "la la-list"));
-    nav.addItem(new AppNavItem("Image List", ImageListView.class, "la la-th-list"));
-    nav.addItem(new AppNavItem("Checkout Form", CheckoutFormView.class, "la la-credit-card"));
-    nav.addItem(new AppNavItem("Master-Detail", MasterDetailView.class, "la la-columns"));
-    nav.addItem(new AppNavItem("About", AboutView.class, "la la-file"));
-
+    FloatingComponent cardFC = new FloatingComponent(new AppNavItem("Card List", CardListView.class, "la la-list"));
+   // nav.addItem()
+   nav.addItem(new AppNavItem("Floating Component", AboutView.class, "la la-file")
+       .addItem(new AppNavItem("Floating Component", AboutView.class, "la la-file")));
+   nav.addItem(new AppNavItem("Card List", CardListView.class, "la la-list"));
+   nav.addItem(new AppNavItem("Image List", ImageListView.class, "la la-th-list"));
+   nav.addItem(new AppNavItem("Checkout Form", CheckoutFormView.class, "la la-credit-card"));
     return nav;
   }
 
