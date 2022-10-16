@@ -38,13 +38,12 @@ public class MainLayout extends AppLayout {
 
   private void setDefaultTheme() {
     UI
-      .getCurrent()
-      .getPage()
-      .executeJs(
-        "document.querySelector('html').setAttribute('theme', '" +
-        ThemeUtil.getCurrentThemeVariant().getAttribute() +
-        "')"
-      );
+        .getCurrent()
+        .getPage()
+        .executeJs(
+            "document.querySelector('html').setAttribute('theme', '" +
+                ThemeUtil.getCurrentThemeVariant().getAttribute() +
+                "')");
   }
 
   private void addHeaderContent(Tabs menu) {
@@ -77,12 +76,10 @@ public class MainLayout extends AppLayout {
     AppNav nav = new AppNav();
 
     FloatingComponent cardFC = new FloatingComponent(new AppNavItem("Card List", CardListView.class, "la la-list"));
-   // nav.addItem()
-   nav.addItem(new AppNavItem("Floating Component", AboutView.class, "la la-file")
-       .addItem(new AppNavItem("Floating Component", AboutView.class, "la la-file")));
-   nav.addItem(new AppNavItem("Card List", CardListView.class, "la la-list"));
-   nav.addItem(new AppNavItem("Image List", ImageListView.class, "la la-th-list"));
-   nav.addItem(new AppNavItem("Checkout Form", CheckoutFormView.class, "la la-credit-card"));
+    nav.addItem(new AppNavItem("Floating Component", AboutView.class, "la la-file"));
+    nav.addItem(new AppNavItem("Card List", CardListView.class, "la la-list"));
+    nav.addItem(new AppNavItem("Image List", ImageListView.class, "la la-th-list"));
+    nav.addItem(new AppNavItem("Checkout Form", CheckoutFormView.class, "la la-credit-card"));
     return nav;
   }
 
