@@ -31,16 +31,17 @@ public class AboutView extends VerticalLayout {
     Button cancelButton = new Button("Cancel", e -> dialog.close());
     dialog.getFooter().add(cancelButton);
 
-    moreItem.addClassName("more-item");
+    moreItem.addClassNames("more-item", "right-side");
     for (int i = 0; i < 3; i++) {
       Label lbl = new Label("Option" + 1);
       moreItem.add(lbl);
     }
 
-    TextField textField = new TextField();
+    TextField textField = new TextField("Text Field");
     textField.addClassName("some");
     textField.setPlaceholder("Enter something...");
     FloatingComponent txtFC = new FloatingComponent(textField, "bg-none", createInfo(), "float-icon");
+    FloatingComponent txtFC2 = new FloatingComponent(textField);
 
     Label lbl = new Label(
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
@@ -50,7 +51,8 @@ public class AboutView extends VerticalLayout {
     Label lbl2 = new Label(
         "Label with custom class for multile icons");
     lbl2.add(moreItem);
-    FloatingComponent multipleIconWithCustomClass = new FloatingComponent(lbl, "icon-wrapper", createicon(), createEllipsis());
+    FloatingComponent multipleIconWithCustomClass = new FloatingComponent(lbl, "icon-wrapper", createicon(),
+        createEllipsis(), createInfo());
     multipleIconWithCustomClass.add(moreItem);
     Label hoverMe = new Label(
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
@@ -58,7 +60,7 @@ public class AboutView extends VerticalLayout {
 
     FloatingComponent userDetails = new FloatingComponent(userCard(), createEllipsis());
 
-    add(chatContent, lblFC, txtFC, userDetails, multipleIconWithCustomClass);
+    add(chatContent, lblFC, txtFC, txtFC2, userDetails, multipleIconWithCustomClass);
     setSizeFull();
   }
 
@@ -88,7 +90,6 @@ public class AboutView extends VerticalLayout {
     return icon;
   }
 
-  
   public Icon createInfo() {
     Icon icon = VaadinIcon.INFO.create();
     icon.addClickListener(
@@ -101,7 +102,6 @@ public class AboutView extends VerticalLayout {
         });
     return icon;
   }
-
 
   public Div userCard() {
     Div div = new Div();

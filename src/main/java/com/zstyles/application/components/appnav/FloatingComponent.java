@@ -1,12 +1,10 @@
 package com.zstyles.application.components.appnav;
 
-import com.nimbusds.jose.shaded.json.JSONObject;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import java.util.ArrayList;
 
 public class FloatingComponent extends Div {
   Div moreItem = new Div();
