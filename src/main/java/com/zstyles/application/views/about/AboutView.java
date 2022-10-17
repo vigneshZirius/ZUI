@@ -1,6 +1,7 @@
 package com.zstyles.application.views.about;
 
-import com.nimbusds.jose.shaded.json.JSONObject;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
@@ -14,10 +15,9 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import com.zstyles.application.components.appnav.FloatingComponent;
 import com.zstyles.application.views.MainLayout;
-import java.util.ArrayList;
 
-@PageTitle("Wrapper")
-@Route(value = "about", layout = MainLayout.class)
+@PageTitle("Floating Component")
+@Route(value = "floating-component", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
 public class AboutView extends VerticalLayout {
 
@@ -25,55 +25,83 @@ public class AboutView extends VerticalLayout {
 
   public AboutView() {
     setSpacing(false);
-    ArrayList<JSONObject> arrList = new ArrayList();
-    for (int i = 0; i < 2; i++) {
-      JSONObject obj = new JSONObject();
-      obj.put("Edit", "vignes");
-      obj.put("id", 1234);
-      arrList.add(obj);
-    }
+
+    Dialog dialog = new Dialog();
+    dialog.setHeaderTitle("New employee");
+    Button cancelButton = new Button("Cancel", e -> dialog.close());
+    dialog.getFooter().add(cancelButton);
 
     moreItem.addClassName("more-item");
-    for (int i = 0; i < arrList.size(); i++) {
-      Label lbl = new Label("menus");
+    for (int i = 0; i < 3; i++) {
+      Label lbl = new Label("Option" + 1);
       moreItem.add(lbl);
     }
 
-    TextField textField = new TextField("Text Field");
+    TextField textField = new TextField();
     textField.addClassName("some");
+    textField.setPlaceholder("Enter something...");
+    FloatingComponent txtFC = new FloatingComponent(textField, "bg-none", createInfo(), "float-icon");
 
     Label lbl = new Label(
-      "This place intentionally left empty. It’s a place where you can grow your own UI 🤗. This place intentionally left empty. It’s a place where you can grow your own UI 🤗🤗🤗"
-    );
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
     lbl.add(moreItem);
-    FloatingComponent lblFC = new FloatingComponent(lbl, createIcon(), createIcon());
-    FloatingComponent txtFC = new FloatingComponent(textField);
+    FloatingComponent lblFC = new FloatingComponent(lbl, createEllipsis(), createEllipsis());
 
+    Label lbl2 = new Label(
+        "Label with custom class for multile icons");
+    lbl2.add(moreItem);
+    FloatingComponent multipleIconWithCustomClass = new FloatingComponent(lbl, "icon-wrapper", createicon(), createEllipsis());
+    multipleIconWithCustomClass.add(moreItem);
     Label hoverMe = new Label(
-      "This place intentionally left empty. It’s a place where you can grow your own UI 🤗. This place intentionally left empty. It’s a place where you can grow your own UI 🤗🤗🤗"
-    );
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
     FloatingComponent chatContent = new FloatingComponent(hoverMe);
-    add(chatContent, txtFC);
 
-    FloatingComponent userDetails = new FloatingComponent(userCard(), createIcon());
-    add(userDetails);
+    FloatingComponent userDetails = new FloatingComponent(userCard(), createEllipsis());
+
+    add(chatContent, lblFC, txtFC, userDetails, multipleIconWithCustomClass);
     setSizeFull();
   }
 
-  public Icon createIcon() {
+  public Icon createEllipsis() {
     Icon icon = VaadinIcon.ELLIPSIS_DOTS_V.create();
-    icon.addClassName("float-icon");
     icon.addClickListener(
-      e -> {
-        if (moreItem.hasClassName("show")) {
-          moreItem.removeClassName("show");
-        } else {
-          moreItem.addClassName("show");
-        }
-      }
-    );
+        e -> {
+          if (moreItem.hasClassName("show")) {
+            moreItem.removeClassName("show");
+          } else {
+            moreItem.addClassName("show");
+          }
+        });
     return icon;
   }
+
+  public Icon createicon() {
+    Icon icon = VaadinIcon.DOWNLOAD.create();
+    icon.addClickListener(
+        e -> {
+          if (moreItem.hasClassName("show")) {
+            moreItem.removeClassName("show");
+          } else {
+            moreItem.addClassName("show");
+          }
+        });
+    return icon;
+  }
+
+  
+  public Icon createInfo() {
+    Icon icon = VaadinIcon.INFO.create();
+    icon.addClickListener(
+        e -> {
+          if (moreItem.hasClassName("show")) {
+            moreItem.removeClassName("show");
+          } else {
+            moreItem.addClassName("show");
+          }
+        });
+    return icon;
+  }
+
 
   public Div userCard() {
     Div div = new Div();
@@ -88,5 +116,6 @@ public class AboutView extends VerticalLayout {
     return div;
   }
 
-  public void test() {}
+  public void test() {
+  }
 }
